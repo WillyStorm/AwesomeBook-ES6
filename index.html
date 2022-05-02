@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <section class="navbar">
+        <nav class="nav">
+          <div><b>Awesome Books</b></div>
+          <div>
+            <a href="#" id="list" onclick="mylists(this)"><span class="maybe">List</span></a> | 
+            <a href="#" id="adds" onclick="addnew(this)"><span class="maybes">Add New</span></a> | 
+            <a href="#" id="contacts" onclick="contact(this)"><span class="maybey">Contact</span></a>
+          </div>
+        </nav>
+        <div class="date"></div>
+      </section>
+    <section id="MyBookLibrary">
+        <h1>All Awesome Books</h1>
+        <div>
+        <table class="library">
+            <tbody id="library"></tbody>
+        </table>
+        </div>
+        <hr class="divide"> 
+    </section>
+    <section class="mylist" id="mylist">
+            <div>
+                <form id="libraryForm">
+                    <h2>Add a New Book</h2>
+                    <input id="title" type="text" placeholder="Title" required> <br><br> 
+                    <input id="authors" type="text" placeholder="Author" required> <br><br>  
+                    <button id="addBtn" type="submit"><b>Add</b></button>
+                </form>
+            </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact information</h2>
+        <article>
+          <h3>WILLY</h3>
+          GitHub: <a href="https://github.com/WillyStorm" target="blank">WillyStorm</a> <br>
+          Twitter: <a href="https://twitter.com/VeljaSTAR" target="blank">VeljaSTAR</a> <br>
+          LinkedIn: <a href="https://www.linkedin.com/in/veljko-panic-437b12231/" target="blank">Mr. Willy</a>
+        </article>
+        <article>
+          <h3>EMMANUEL</h3>
+          GitHub: <a href="https://github.com/Epaltechs" target="blank">Epaltechs</a> <br>
+          Twitter: <a href="http://twitter.com/@emmapaul247" target="blank">emmapaul247</a> <br>
+          LinkedIn: <a href="https://www.linkedin.com/in/emmanuel-paul-a2bab7b4/" target="blank">Mr. Emmanuel</a>
+        </article>
+      </section>
+      <section class="footer">
+        <footer>
+          All rights reserved: Willy & Emmanuel.
+        </footer>
+      </section>   
+    <script src="library.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
