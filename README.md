@@ -16,11 +16,11 @@ Working on a simple form, manipulating object data and object proporties using d
 - node js & npm
 
 ### Preview
-https://willystorm.github.io/AwesomeBook-ES6/
+https://willystorm.github.io/AwesomeBooks/
 
 ### Setup
 
-https://github.com/WillyStorm/AwesomeBook-ES6.git
+https://github.com/WillyStorm/AwesomeBooks.git
 
 cd AwesomeBook-ES6
 
