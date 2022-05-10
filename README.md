@@ -21,7 +21,7 @@ https://willystorm.github.io/AwesomeBook-ES6/
 ### Setup
 
 https://github.com/WillyStorm/AwesomeBook-ES6.git
-cd festival
+cd AwesomeBook-ES6
 
 ### Video Presentation
 
