@@ -17,13 +17,11 @@ Working on a simple form, manipulating object data and object proporties using d
 
 ### Preview
 
-https://willystorm.github.io/AwesomeBooks/
-
+https://willystorm.github.io/AwesomeBook-ES6/
 ### Setup
 
-git clone https://github.com/WillyStorm/AwesomeBooks.git
-
-cd festival
+https://github.com/WillyStorm/AwesomeBook-ES6.git
+cd AwesomeBook-ES6
 
 ### Video Presentation
 

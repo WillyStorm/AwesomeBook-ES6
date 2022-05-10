@@ -1,42 +1,69 @@
-function mylists(list) {
-    document.getElementById('MyBookLibrary').style.display = 'flex';
-    document.getElementById('mylist').style.display = 'none';
-    document.getElementById('contact').style.display = 'none';
-    document.querySelector('.maybe').style.color= "blue";
-    document.querySelector('.maybes').style.color= "#000";
-    document.querySelector('.maybey').style.color= "#000";
-   window.location.reload();
+const list = document.getElementById('ourList');
+
+class BookObject {
+  constructor(titleName, authorName) {
+    this.title = titleName;
+    this.author = authorName;
   }
-  
-  function addnew(adds) {
-    document.getElementById('MyBookLibrary').style.display = 'none';
-    document.getElementById('mylist').style.display = 'block';
-    document.getElementById('contact').style.display = 'none';
-    document.querySelector('.maybes').style.color= "blue";
-    document.querySelector('.maybey').style.color= "#000";
-    document.querySelector('.maybe').style.color= "#000";
+
+  static setContent() {
+    list.innerHTML = '';
+
+    const setBookContent = JSON.parse(JSON.stringify(localStorage.getItem('bookContent')));
+    const newBookObj = JSON.parse(setBookContent);
+
+    const div = [];
+    const template = [];
+    if (newBookObj.length > 0) {
+      for (let i = 0; i < newBookObj.length; i += 1) {
+        div[i] = document.createElement('tr');
+        template[i] = `
+          <td class="table-item">
+            "${newBookObj[i].title}" by ${newBookObj[i].author}
+            <button type='button' class="removeButton">Remove</button>
+          </td>`;
+
+        div[i].innerHTML = template[i];
+        list.appendChild(div[i]);
+      }
+    }
   }
-  
-  function contact(contacts) {
-    document.getElementById('MyBookLibrary').style.display = 'none';
-    document.getElementById('mylist').style.display = 'none';
-    document.getElementById('contact').style.display = 'flex';
-    document.querySelector('.maybey').style.color= "blue";
-    document.querySelector('.maybes').style.color= "#000";
-    document.querySelector('.maybe').style.color= "#000";
+
+  static saveToLocal() {
+    const bookArray = [];
+
+    localStorage.setItem('bookContent', JSON.stringify(bookArray));
   }
-  
-  const time = document.querySelector('.date');
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-  ];
-  
-  function timer() {
-    const date = new Date();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const day = date.getDate();
-    time.innerHTML = `${monthNames[month]} ${day} ${year}, ${date.toLocaleTimeString()}`;
+
+  add() {
+    const bookContentArray = JSON.parse(JSON.stringify(localStorage.getItem('bookContent')));
+    const newBookContentArray = JSON.parse(bookContentArray);
+
+    const myBookObject = {
+      title: this.title,
+      author: this.author,
+    };
+
+    newBookContentArray.push(myBookObject);
+    localStorage.setItem('bookContent', JSON.stringify(newBookContentArray));
+    BookObject.setContent();
   }
-  
-  setInterval(timer, 1000);
+
+  static remove(btn, key) {
+    btn.addEventListener('click', () => {
+      const setBookContentR = JSON.parse(JSON.stringify(localStorage.getItem('bookContent')));
+      const newBookObjR = JSON.parse(setBookContentR);
+      if (key === 0) {
+        newBookObjR.splice(key, key + 1);
+      } else {
+        newBookObjR.splice(key, key);
+      }
+
+      localStorage.setItem('bookContent', JSON.stringify(newBookObjR));
+      BookObject.setContent();
+      window.location.reload();
+    });
+  }
+}
+
+export default BookObject;
